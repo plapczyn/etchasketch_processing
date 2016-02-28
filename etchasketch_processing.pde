@@ -38,7 +38,7 @@ String buff2 = "";
 int index = 0;
 int NEWLINE = 10;
 
-// Store the last 256 values from the sensors so we can draw them.
+// Store the last 512 values from the sensors so we can draw them.
 int[] valuesx = new int[512];
 int[] valuesy = new int[512];
 
@@ -120,9 +120,9 @@ void serialEvent(int serial)
       buff1 = buff.substring(0, index);
       buff2 = buff.substring(index+1, buff.length());
   
-      // Parse the String into an integer.  We divide by 4 because
-      // analog inputs go from 0 to 1023 while colors in Processing
-      // only go from 0 to 255.
+      // Parse the String into an integer.  We divide by 2 because
+      // analog inputs go from 0 to 1023 while our window size is
+      // only 512 by 512 pixels.
       int x = Integer.parseInt(buff1)/2;
       int y = Integer.parseInt(buff2)/2;
   
